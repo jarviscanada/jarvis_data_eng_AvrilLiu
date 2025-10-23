@@ -3,7 +3,7 @@
 # Script Name: host_info.sh
 # Description: Collect host hardware info and insert into host_info table
 # Usage: ./host_info.sh psql_host psql_port db_name psql_user psql_password
-# -----------------------------------------------
+# ----------------------------------------------
 
 # Arguments
 psql_host=$1
