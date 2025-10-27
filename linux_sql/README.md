@@ -53,7 +53,73 @@ crontab -e
 
 ---
 
-## 4. Testing
+## 4. Implementation
+
+For this project, I built two main Bash scripts that interact with a PostgreSQL database.  
+The first one, `host_info.sh`, collects static hardware details like CPU model, architecture, and memory, and inserts them into a table called `host_info`.  
+The second one, `host_usage.sh`, collects live system usage data (CPU, memory, disk) every minute and writes it into the `host_usage` table.  
+To automate this, I set up a crontab job that runs the usage script every minute.  
+All the data is stored in a central PostgreSQL container running on Docker, so it’s easy to test, reset, or migrate.  
+The implementation is straightforward but tries to follow a real-world DevOps workflow where monitoring and data ingestion are separated and automated.
+
+---
+
+## 5. Architecture
+
+The project uses a simple cluster setup:  
+three Linux hosts are connected to a single PostgreSQL instance running in Docker.  
+Each host runs the two agent scripts (one-time hardware info and recurring usage collection).  
+The collected data is pushed to the central DB, allowing centralized monitoring and later analysis.
+
+I drew the architecture diagram in **draw.io**, saved as `assets/architecture.png`.
+
+---
+
+## 6. Database Modeling
+
+The database contains two tables, `host_info` and `host_usage`.  
+They are linked by a foreign key (`host_id`), so each usage record maps back to its host hardware info.
+
+---
+
+### `host_info`
+| Column Name | Data Type | Description |
+|--------------|------------|-------------|
+| id | SERIAL (PK) | Unique host identifier |
+| hostname | VARCHAR | Name of the host |
+| cpu_number | INT | Number of CPUs |
+| cpu_architecture | VARCHAR | CPU architecture type |
+| cpu_model | VARCHAR | CPU model name |
+| cpu_mhz | FLOAT | Clock speed in MHz |
+| l2_cache | INT | L2 cache size (KB) |
+| total_mem | INT | Total memory (KB) |
+| timestamp | TIMESTAMP | Record insertion time |
+
+### `host_usage`
+| Column Name | Data Type | Description |
+|--------------|------------|-------------|
+| timestamp | TIMESTAMP | Time when data was collected |
+| host_id | INT (FK) | References `host_info(id)` |
+| memory_free | INT | Available memory (KB) |
+| cpu_idle | INT | CPU idle percentage |
+| cpu_kernel | INT | CPU kernel usage percentage |
+| disk_io | INT | Disk I/O count |
+| disk_available | INT | Free disk space (KB) |
+
+---
+
+## 7. Deployment
+
+I used a Dockerized PostgreSQL setup for this project.  
+All scripts and SQL files are pushed to GitHub under the `linux_sql` folder.  
+After cloning the repo, I ran `psql_docker.sh` to start a DB container, created the tables using `ddl.sql`,  
+and then executed `host_info.sh` and `host_usage.sh` to populate data.  
+For automation, I added a crontab entry so the usage script runs every minute in the background.  
+This setup makes it easy to replicate or migrate the monitoring system to any Linux environment.
+
+---
+
+## 8. Testing
 
 ```bash
 # Verify container
@@ -69,7 +135,7 @@ psql -h localhost -U postgres -d host_agent -c "SELECT * FROM host_usage LIMIT 5
 
 ---
 
-## 5. Future Improvements
+## 9. Future Improvements
 
 - Automatically update host information when hardware changes.  
 - Add logging and error-handling for database connection failures.  
