@@ -1,0 +1,99 @@
+# Preferred name (Characters only)
+name: "Avril Liu"
+
+# Your GitHub repo root URL
+github_repo_root_url: "https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu"
+
+# Introduce yourself (80-120 words)
+summary: >
+  Backend Engineer with 3+ years of experience building scalable SaaS and distributed systems focused on performance,
+  reliability, and impact. Skilled in microservices, event-driven design, and data pipelines using Kafka, Redis, and SQL/NoSQL.
+  Delivered high-throughput messaging platforms (15K+ QPS) with 99.9% uptime and real-time analytics for multi-tenant clients.
+  Proficient in RESTful APIs, Docker/Kubernetes, and observability tools (Prometheus/ELK). Master’s in Computational Science,
+  authorized to work in Canada until 2029
+
+skills:
+  proficient:
+    - Java
+    - Go
+    - Spring Boot
+    - RDBMS (MySQL) 
+    - MongoDB (NoSQL)
+    - Linux/Bash
+    - Kafka
+    - Redis
+    - Docker
+    - Kubernetes
+  competent:
+    - Python (Flask/FastAPI)
+    - TypeScript/JavaScript (Next.js)
+    - REST/GraphQL APIs
+    - AWS/GCP (Serverless)
+    - CI/CD (GitHub Actions/Jenkins)
+    - Netty
+  familiar:
+    - gRPC
+    - Message Queuing (RabbitMQ / SQS)
+    - Cloud Monitoring (CloudWatch / Stackdriver)
+    - PostgreSQL
+    - Raft Consensus Algorithm
+
+jarvis_projects:
+  - name: "Linux Cluster Monitoring Agent"
+    git_url: "/linux_sql"
+    description: >
+      Built a Linux monitoring agent on Rocky Linux to collect hardware and usage data via Bash scripts.
+      Automated PostgreSQL data ingestion with crontab and Dockerized database container for analytics.
+
+highlighted_projects:
+  - name: "Roots & Route (Nonprofit, Canada)"
+    git_url: "https://github.com/avril-root/roots-route"
+    description: >
+      Developed an AI-assisted trip planner using Supabase and Bolt AI, automating itinerary generation and multi-tenant route management.
+
+  - name: "Custom Java RPC Framework (Netty)"
+    git_url:
+    description: >
+      Built a lightweight RPC framework with dynamic proxy, serialization (Kryo/Protobuf), and heartbeat checks,
+      enabling low-latency, fault-tolerant service-to-service communication.
+
+  - name: "Raft Consensus Algorithm"
+    git_url:
+    description: >
+      Implemented leader election, log replication, and fault recovery to simulate distributed system consensus.
+
+professional_experience:
+  - title: "Software Developer"
+    company: "Qiniu Information Technology"
+    duration: "Jun. 2022 – Apr. 2024"
+    description: >
+      Built a high-throughput SMS dispatch system for OTP, alerts, and marketing campaigns.
+      Designed a Kafka–Redis pipeline (15K+ QPS) with RESTful APIs, improved throughput by 40%, and reduced latency by 70%.
+      Expanded the system to 12+ gateways with automatic failover and SLA monitoring using Prometheus and ELK.
+
+  - title: "Backend Developer Intern"
+    company: "Alibaba Cloud"
+    duration: "Jun. 2021 – Apr. 2022"
+    description: >
+      Designed lifecycle and approval flows with gRPC/Dubbo for secure integration.
+      Optimized MySQL indexes for 50M+ records and migrated 10M+ records losslessly via Kafka pipelines.
+      Deployed services using Docker/Kubernetes for scalable and fault-tolerant infrastructure.
+
+education: 
+  - school_name: "Laurentian University"
+    duration: "Sep 2024 – Aug 2025"
+    degree: "Master of Computational Science"
+    department: "Computational Science"
+    awards_achievements: 
+      - "Completed program in 12 months (Early Completion)"
+  - school_name: "Heilongjiang University"
+    duration: "Sept 2018 – Jun 2022"
+    degree: "Bachelor of Computer Science"
+    department: "Internet of Things"
+    awards_achievements:
+
+others:
+  - title: "Core Strengths"
+    bullets:
+      - "Authorized to work in Canada until 2029."
+      - "Committed to clean code, comprehensive unit testing, and code review best practices."
