@@ -1,0 +1,35 @@
+# Ignore macOS system files
+.DS_Store
+
+# Ignore compiled class files
+*.class
+
+# Ignore IntelliJ IDEA and VSCode project settings
+.idea/
+.vscode/
+
+# Ignore build artifacts
+target/
+out/
+
+# Ignore log and temporary files
+*.log
+*.tmp
+*.bak
+
+# Ignore jar/war/zip files
+*.jar
+*.war
+*.zip
+
+# Ignore Maven local config
+.settings/
+.project
+.classpath
+
+# Ignore temporary data files from grep app
+core_java/grep/out/
+core_java/grep/data/txt/
+
+# Ignore OS swap or system cache files
+*~
