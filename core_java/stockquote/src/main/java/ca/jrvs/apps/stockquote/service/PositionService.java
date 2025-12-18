@@ -3,6 +3,7 @@ package ca.jrvs.apps.stockquote.service;
 import ca.jrvs.apps.stockquote.dao.CrudDao;
 import ca.jrvs.apps.stockquote.dao.Position;
 import ca.jrvs.apps.stockquote.dao.Quote;
+import java.util.Optional;
 
 public class PositionService {
 
@@ -12,6 +13,10 @@ public class PositionService {
   public PositionService(CrudDao<Position, String> positiondao, CrudDao<Quote, String> quotedao) {
     this.positiondao = positiondao;
     this.quotedao = quotedao;
+  }
+
+  public Iterable<Position> getAllPositions() {
+    return positiondao.findAll();
   }
 
   /**
@@ -79,4 +84,23 @@ public class PositionService {
     String symbol = ticker.trim().toUpperCase();
     positiondao.deleteById(symbol);
   }
+
+  public Position sellAll(String ticker, double sellPrice) {
+    if (ticker == null || ticker.isBlank()) {
+      throw new IllegalArgumentException("ticker is blank");
+    }
+    if (sellPrice <= 0) {
+      throw new IllegalArgumentException("sellPrice must be > 0");
+    }
+
+    Optional<Position> opt = positiondao.findById(ticker);
+    Position p = opt.orElseThrow(() ->
+        new IllegalArgumentException("No position found for ticker: " + ticker)
+    );
+
+    positiondao.deleteById(ticker);
+
+    return p;
+  }
+
 }

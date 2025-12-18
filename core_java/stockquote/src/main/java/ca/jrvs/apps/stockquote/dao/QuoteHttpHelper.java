@@ -20,7 +20,7 @@ public class QuoteHttpHelper implements QuoteFetcher {
   private final OkHttpClient client;
   private final ObjectMapper objectMapper;
 
-  public QuoteHttpHelper(String apikey) {
+  public QuoteHttpHelper(String apikey, OkHttpClient client) {
     this.apikey = apikey;
     this.client = new OkHttpClient();
     this.objectMapper = new ObjectMapper();
