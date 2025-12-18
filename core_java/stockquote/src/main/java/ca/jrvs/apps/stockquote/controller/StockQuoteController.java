@@ -7,11 +7,15 @@ import ca.jrvs.apps.stockquote.service.QuoteService;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Scanner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class StockQuoteController {
 
   private final QuoteService quoteService;
   private final PositionService positionService;
+
+  private static final Logger logger = LoggerFactory.getLogger(StockQuoteController.class);
 
   public StockQuoteController(QuoteService quoteService, PositionService positionService) {
     this.quoteService = quoteService;
@@ -34,6 +38,7 @@ public class StockQuoteController {
         if (line.isEmpty()) {
           continue;
         }
+        logger.info("Command received: {}", line);
 
         String[] tokens = line.split("\\s+");
         String cmd = tokens[0].toLowerCase(Locale.ROOT);
@@ -56,8 +61,10 @@ public class StockQuoteController {
             System.out.println("Unknown command. Type `help`.");
           }
         } catch (IllegalArgumentException e) {
+          logger.warn("Invalid input: {}", e.getMessage());
           System.out.println("Invalid input: " + e.getMessage());
         } catch (Exception e) {
+          logger.error("Unexpected error", e.getMessage());
           System.out.println("Error: " + e.getMessage());
         }
       }
