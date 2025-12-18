@@ -44,7 +44,8 @@ public class QuoteDao implements CrudDao<Quote, String> {
 
   // Select all rows
   private static final String SELECT_ALL_SQL =
-      "SELECT symbol, open, high, low, price, volume, latest_trading_day, previous_close, change, change_percent, timestamp " +
+      "SELECT symbol, open, high, low, price, volume, latest_trading_day, previous_close, change, change_percent, timestamp "
+          +
           "FROM quote";
 
   // Map a ResultSet row to a Quote object
@@ -89,7 +90,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
       ps.executeUpdate();
       return entity;
     } catch (Exception e) {
-      throw new IllegalStateException("\"Failed to save quote: \" + entity.getTicker(), e");
+      throw new IllegalStateException("Failed to save quote: " + entity.getTicker(), e);
     }
   }
 
@@ -112,7 +113,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
         Quote q = mapRowToQuote(rs);
         return Optional.of(q);
       }
-    } catch (Exception e){
+    } catch (Exception e) {
       throw new IllegalStateException("Failed to find quote by symbol: " + s, e);
     }
 
@@ -122,14 +123,14 @@ public class QuoteDao implements CrudDao<Quote, String> {
   public Iterable<Quote> findAll() {
     List<Quote> result = new ArrayList<>();
     try (var ps = connection.prepareStatement(SELECT_ALL_SQL);
-    var rs = ps.executeQuery()){
+        var rs = ps.executeQuery()) {
 
-      while(rs.next()){
+      while (rs.next()) {
         result.add(mapRowToQuote(rs));
       }
 
       return result;
-    }catch (Exception e){
+    } catch (Exception e) {
       throw new IllegalStateException("Failed to find all quotes", e);
     }
   }

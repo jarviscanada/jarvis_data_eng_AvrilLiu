@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionManager {
 
-  public Connection getConnection() {
+  public static Connection getConnection() {
     try {
       String host = System.getenv("PG_HOST");
       String port = System.getenv("PG_PORT");

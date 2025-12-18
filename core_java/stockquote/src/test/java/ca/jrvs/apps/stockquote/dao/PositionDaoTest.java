@@ -3,6 +3,7 @@ package ca.jrvs.apps.stockquote.dao;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import ca.jrvs.apps.stockquote.testutil.TestDataUtil;
 import ca.jrvs.apps.stockquote.util.ConnectionManager;
 import java.sql.Connection;
 import java.util.Optional;

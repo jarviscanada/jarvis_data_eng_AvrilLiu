@@ -1,6 +1,7 @@
-package ca.jrvs.apps.stockquote.dao;
+package ca.jrvs.apps.stockquote.testutil;
 
 
+import ca.jrvs.apps.stockquote.dao.Quote;
 import java.sql.Date;
 import java.sql.Timestamp;
 

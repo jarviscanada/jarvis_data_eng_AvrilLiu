@@ -2,6 +2,7 @@ package ca.jrvs.apps.stockquote.dao;
 
 import ca.jrvs.apps.stockquote.dto.GlobalQuote;
 import ca.jrvs.apps.stockquote.dto.GlobalQuoteResponse;
+import ca.jrvs.apps.stockquote.service.QuoteFetcher;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -13,7 +14,7 @@ import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class QuoteHttpHelper {
+public class QuoteHttpHelper implements QuoteFetcher {
   private static final Logger logger = LoggerFactory.getLogger(QuoteHttpHelper.class);
   private final String apikey;
   private final OkHttpClient client;
@@ -103,10 +104,6 @@ public class QuoteHttpHelper {
       throw new IllegalArgumentException("Error parsing JSON response from Alpha Vantage: " + symbol, e);
     }
 
-    // 6. convert DTO to Quote
-    // 7. return Quote
-
-    // temporary
   }
 
 }
