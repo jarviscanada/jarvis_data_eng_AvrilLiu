@@ -1,5 +1,6 @@
 package ca.jrvs.apps.stockquote.dao;
 
+import okhttp3.OkHttpClient;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +13,7 @@ public class QuoteHttpHelperTest {
     assertNotNull(apiKey);
     assertFalse(apiKey.isBlank());
 
-    QuoteHttpHelper helper = new QuoteHttpHelper(apiKey);
+    QuoteHttpHelper helper = new QuoteHttpHelper(apiKey, new OkHttpClient());
     Quote quote = helper.fetchQuoteInfo("MSFT");
 
     assertNotNull(quote);
