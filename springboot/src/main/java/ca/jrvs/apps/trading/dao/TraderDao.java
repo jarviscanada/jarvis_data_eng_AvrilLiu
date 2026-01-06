@@ -1,6 +1,8 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.Trader;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -33,6 +35,21 @@ public class TraderDao {
   private static final String UPDATE_BY_ID =
       "UPDATE trader SET first_name=?, last_name=?, dob=?, country=?, email=? WHERE id=?";
 
+  private static final String EXISTS_BY_ID =
+      "SELECT EXISTS (SELECT 1 FROM trader WHERE id = ?)";
+
+  private static final String FIND_ALL =
+      "SELECT id, first_name, last_name, dob, country, email FROM trader ORDER BY id";
+
+  private static final String DELETE_BY_ID =
+      "DELETE FROM trader WHERE id=?";
+
+  private static final String DELETE_ALL =
+      "DELETE FROM trader";
+
+  private static final String COUNT =
+      "SELECT COUNT(1) FROM trader";
+
   public Trader findById(Integer id) {
     return jdbcTemplate.query(FIND_BY_ID, TRADER_ROW_MAPPER, id)
         .stream().findFirst().orElse(null);
@@ -63,5 +80,36 @@ public class TraderDao {
       );
       return findById(trader.getId());
     }
+  }
+
+  public boolean existsById(Integer id) {
+    Boolean exists = jdbcTemplate.queryForObject(EXISTS_BY_ID, Boolean.class, id);
+    return Boolean.TRUE.equals(exists);
+  }
+
+  public List<Trader> findAll() {
+    return jdbcTemplate.query(FIND_ALL, TRADER_ROW_MAPPER);
+  }
+
+  public List<Trader> findAllById(Iterable<Integer> ids) {
+    List<Trader> result = new ArrayList<>();
+    for (Integer id : ids) {
+      Trader t = findById(id);
+      if (t != null) result.add(t);
+    }
+    return result;
+  }
+
+  public void deleteById(Integer id) {
+    jdbcTemplate.update(DELETE_BY_ID, id);
+  }
+
+  public void deleteAll() {
+    jdbcTemplate.update(DELETE_ALL);
+  }
+
+  public long count() {
+    Long c = jdbcTemplate.queryForObject(COUNT, Long.class);
+    return c == null ? 0L : c;
   }
 }
