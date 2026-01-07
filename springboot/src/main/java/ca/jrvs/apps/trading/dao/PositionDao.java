@@ -33,6 +33,9 @@ public class PositionDao {
   private static final String FIND_ALL =
       "SELECT account_id, ticker, position FROM position ORDER BY account_id, ticker";
 
+  private static final String FIND_BY_ACCOUNT =
+      "SELECT account_id, ticker, position FROM position WHERE account_id=? ORDER BY ticker";
+
   private static final String COUNT =
       "SELECT COUNT(1) FROM position";
 
@@ -43,7 +46,8 @@ public class PositionDao {
   }
 
   public boolean existsByAccountIdAndTicker(Integer accountId, String ticker) {
-    Boolean exists = jdbcTemplate.queryForObject(EXISTS_BY_ACCOUNT_AND_TICKER, Boolean.class, accountId, ticker);
+    Boolean exists = jdbcTemplate.queryForObject(EXISTS_BY_ACCOUNT_AND_TICKER, Boolean.class,
+        accountId, ticker);
     return Boolean.TRUE.equals(exists);
   }
 
@@ -52,14 +56,14 @@ public class PositionDao {
   }
 
   /**
-   * Return all positions for a list of account IDs.
-   * (Because position doesn't have a single 'id', using account_id is the practical "ID list".)
+   * Return all positions for a list of account IDs. (Because position doesn't have a single 'id',
+   * using account_id is the practical "ID list".)
    */
   public List<Position> findAllByAccountId(Iterable<Integer> accountIds) {
     List<Position> result = new ArrayList<>();
     for (Integer accountId : accountIds) {
       List<Position> positions = jdbcTemplate.query(
-          "SELECT account_id, ticker, position FROM position WHERE account_id=? ORDER BY ticker",
+          FIND_BY_ACCOUNT,
           POSITION_ROW_MAPPER,
           accountId
       );

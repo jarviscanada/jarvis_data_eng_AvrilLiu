@@ -48,6 +48,22 @@ public class AccountDao {
   private static final String COUNT =
       "SELECT COUNT(1) FROM account";
 
+  private static final String INSERT_WITH_ID =
+      "INSERT INTO account (id, trader_id, amount) VALUES (?, ?, ?)";
+
+  public Account insertWithId(Account account) {
+    if (account.getId() == null) {
+      throw new IllegalArgumentException("account.id must not be null for insertWithId");
+    }
+    jdbcTemplate.update(
+        INSERT_WITH_ID,
+        account.getId(),
+        account.getTraderId(),
+        account.getAmount()
+    );
+    return findById(account.getId());
+  }
+
   public Account findById(Integer id) {
     return jdbcTemplate.query(FIND_BY_ID, ACCOUNT_ROW_MAPPER, id)
         .stream().findFirst().orElse(null);
