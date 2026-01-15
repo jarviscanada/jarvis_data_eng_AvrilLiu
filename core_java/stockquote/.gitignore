@@ -1,0 +1,9 @@
+# logs
+log/
+*.log
+
+# IDE
+.idea/
+
+# local config
+properties.txt
