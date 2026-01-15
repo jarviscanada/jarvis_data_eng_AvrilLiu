@@ -40,18 +40,23 @@ skills:
     - Responsive UI Implementation
 jarvis_projects:
   - name: "Linux Cluster Monitoring Agent"
-    git_url: "https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu/tree/main/linux_sql"
+    git_url: "/linux_sql"
     description: >
       Developed a Linux cluster monitoring system on Rocky Linux to collect hardware and resource usage metrics using Bash scripts.
       Automated data ingestion into a Dockerized PostgreSQL database with crontab scheduling,
       enabling centralized monitoring and reducing manual operational overhead.
+  - name: "SQL"
+    git_url: "/sql"
+    description: >
+     Built and exercised a PostgreSQL environment using Docker to practice relational database design and querying. Defined schemas with DDL scripts, populated datasets for testing, and wrote SQL queries involving multi-table joins, aggregations, subqueries, and data transformations to analyze structured data and validate query logic.
+
   - name: "Core Java Apps"
-    git_url: "https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu/tree/main/core_java"
+    git_url: "/core_java"
     description:
       - "JDBC Stock App: Built a Java-based CLI application for managing stock portfolios, supporting quote lookup, buy, sell, and performance tracking. Integrated a real-time stock data REST API and persisted data to PostgreSQL via JDBC. Implemented structured logging with SLF4J, containerized the application using Docker, and managed dependencies with Maven. Validated core functionality through unit and integration tests using JUnit and Mockito."
       - "Grep App: Developed a Java application that replicates core functionality of the Linux grep command using object-oriented design. Implemented recursive file traversal and regex-based pattern matching, leveraging Java Streams and Lambda expressions for efficient data processing. Added logging with Logback and packaged the application into a Docker image using Maven for dependency management."
   - name: "Spring Boot Trading App"
-    git_url: "https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu/tree/main/springboot"
+    git_url: "/springboot"
     description: >
       Developed a Spring Boot–based trading application that exposes RESTful APIs for stock quote retrieval, order execution, and portfolio management, with an emphasis on clear service boundaries and backend correctness. The application integrates an external market data API for real-time pricing, applies a layered architecture (controller, service, DAO) to separate business logic from persistence concerns, and enforces validation and error handling to maintain data integrity. Relational data models were designed and implemented with JDBC and PostgreSQL, complemented by structured logging, containerized deployment using Docker, and unit and integration tests to verify end-to-end trading workflows.
 
