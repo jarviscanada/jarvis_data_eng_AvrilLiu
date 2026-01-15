@@ -15,7 +15,6 @@ summary: >
 skills:
   proficient:
     - Java
-    - Go
     - Spring Boot
     - RDBMS (MySQL, PostgreSQL)
     - MongoDB (NoSQL)
@@ -23,21 +22,22 @@ skills:
     - Redis
     - Docker
     - Kubernetes
-    - Linux/Bash
+    - Linux (Bash, CLI, Shell Scripting)
   competent:
-    - Python (Flask/FastAPI)
+    - Python (Flask / FastAPI)
     - TypeScript/JavaScript (React / Next.js)
     - RESTful APIs
     - SQL & Data Modeling
     - Cloud Platforms (AWS / GCP)
-    - CI/CD (GitHub Actions/Jenkins)
+    - CI/CD (GitHub Actions / Jenkins)
     - Netty
-  familiar:
     - gRPC
+  familiar:
     - Message Queuing (RabbitMQ / SQS)
     - Observability & Monitoring (Prometheus, CloudWatch)
-    - PostgreSQL
     - Distributed Systems Concepts (Raft Consensus Algorithm)
+    - API Documentation
+    - Responsive UI Implementation
 jarvis_projects:
   - name: "Linux Cluster Monitoring Agent"
     git_url: "https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu/tree/main/linux_sql"
@@ -82,10 +82,10 @@ highlighted_projects:
 
 professional_experience:
   - title: "Data Engineer & Java Developer"
-  - company: "Jarvis"
-  - duration: "2025 – Present"
-  - description: >
-  - Developed backend and data-related development tasks within an Agile/Scrum team, touching Java/Spring Boot services, SQL-based data handling, and Linux environments. Built REST APIs, wrote database queries and schema changes, and ran applications in Dockerized setups as part of iterative development cycles. Worked with sprint-based workflows, regular check-ins, and code reviews to support steady progress and maintain code clarity and quality.
+    company: "Jarvis"
+    duration: "2025 – Present"
+    description: >
+     Developed backend and data-related development tasks within an Agile/Scrum team, touching Java/Spring Boot services, SQL-based data handling, and Linux environments. Built REST APIs, wrote database queries and schema changes, and ran applications in Dockerized setups as part of iterative development cycles. Worked with sprint-based workflows, regular check-ins, and code reviews to support steady progress and maintain code clarity and quality.
 
   - title: "Software Developer"
     company: "Qiniu Information Technology"
@@ -108,12 +108,17 @@ education:
     duration: "Sep 2024 – Aug 2025"
     degree: "Master of Computational Science (2-year program, early completion)"
     department: "Computational Science"
+    awards_achievements:
+      - "N/A"
 
   - school_name: "Heilongjiang University"
     duration: "Sept 2018 – Jun 2022"
     degree: "Bachelor of Computer Science"
     department: "Internet of Things"
-
+    awards_achievements:
+      - "Recognized for participation in a university innovation and entrepreneurship program."
+      - "First Prize in Freshman Algorithm Competition"
+      - "Second Prize in University-Level Algorithm Competition"
 
 others:
   - title: "Activities"
