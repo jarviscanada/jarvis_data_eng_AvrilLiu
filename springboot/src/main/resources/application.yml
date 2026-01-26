@@ -1,0 +1,14 @@
+marketdata:
+  eodhd:
+    base-url: "https://eodhd.com/api/us-quote-delayed"
+    token: ${EODHD_TOKEN}
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+      url: jdbc:postgresql://localhost:5432/jrvstrading
+      username: postgres
+      password: password
+
