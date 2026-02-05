@@ -1,0 +1,12 @@
+{
+  "name": "typescript-conversion",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "start": "node built/index.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

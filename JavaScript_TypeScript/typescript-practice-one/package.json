@@ -1,0 +1,16 @@
+{
+  "name": "typescript-practice-one",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "type-assertions": "^1.1.0"
+  }
+}
