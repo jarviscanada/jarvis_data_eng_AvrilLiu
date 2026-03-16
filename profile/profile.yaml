@@ -6,38 +6,39 @@ github_repo_root_url: "https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu"
 
 # Introduce yourself (80-120 words)
 summary: >
-  I am a Backend Engineer with 2+ years of experience building cloud-based backend services and distributed systems.
-  I work primarily with Java and Spring Boot to design and develop RESTful APIs, 
-  microservices, and event-driven service platforms using Kafka, Redis, and SQL/NoSQL databases. 
-  I have contributed to high-throughput, multi-tenant messaging and cloud service systems, 
-  with a focus on reliability, scalability, and operational stability. 
-  I hold a Master’s degree in Computational Science and am motivated to build reliable, production-grade systems in enterprise environments.
+  I am a Software Engineer with 2+ years of experience building cloud services and distributed systems. 
+  I work primarily with Java and Spring Boot to develop services in distributed architectures and event-driven platforms using technologies such as Kafka, Redis, and SQL/NoSQL databases. 
+  I have contributed to high-throughput, multi-tenant messaging and cloud infrastructure platforms, focusing on reliability, scalability, and operational stability.
+  I hold a Master’s degree in Computational Science and enjoy building robust systems that support real-world services and data workflows.
+
 skills:
   proficient:
     - Java
     - Spring Boot
-    - RDBMS (MySQL, PostgreSQL)
-    - MongoDB (NoSQL)
+    - Golang
+    - RDBMS (PostgreSQL, MySQL)
+    - MongoDB
     - Kafka
     - Redis
     - Docker
     - Kubernetes
-    - Linux (Bash, CLI, Shell Scripting)
+    - Linux (Bash, CLI)
+
   competent:
-    - Python (Flask / FastAPI)
-    - TypeScript/JavaScript (React / Next.js)
-    - RESTful APIs
-    - SQL & Data Modeling
-    - Cloud Platforms (AWS / GCP)
-    - CI/CD (GitHub Actions / Jenkins)
-    - Netty
+    - Python
+    - Pandas, NumPy, Jupyter
+    - TypeScript / JavaScript (React)
+    - CI/CD (Jenkins, GitHub Actions)
+    - Cloud Platforms (Azure, AWS)
     - gRPC
+
   familiar:
-    - Message Queuing (RabbitMQ / SQS)
-    - Observability & Monitoring (Prometheus, CloudWatch)
-    - Distributed Systems Concepts (Raft Consensus Algorithm)
-    - API Documentation
-    - Responsive UI Implementation
+    - RabbitMQ
+    - Prometheus
+    - Distributed Systems
+    - Netty
+    - Microservices Architecture
+
 jarvis_projects:
   - name: "Linux Cluster Monitoring Agent"
     git_url: "/linux_sql"
@@ -45,6 +46,7 @@ jarvis_projects:
       Developed a Linux cluster monitoring system on Rocky Linux to collect hardware and resource usage metrics using Bash scripts.
       Automated data ingestion into a Dockerized PostgreSQL database with crontab scheduling,
       enabling centralized monitoring and reducing manual operational overhead.
+
   - name: "SQL"
     git_url: "/sql"
     description: >
@@ -55,10 +57,26 @@ jarvis_projects:
     description:
       - "JDBC Stock App: Built a Java-based CLI application for managing stock portfolios, supporting quote lookup, buy, sell, and performance tracking. Integrated a real-time stock data REST API and persisted data to PostgreSQL via JDBC. Implemented structured logging with SLF4J, containerized the application using Docker, and managed dependencies with Maven. Validated core functionality through unit and integration tests using JUnit and Mockito."
       - "Grep App: Developed a Java application that replicates core functionality of the Linux grep command using object-oriented design. Implemented recursive file traversal and regex-based pattern matching, leveraging Java Streams and Lambda expressions for efficient data processing. Added logging with Logback and packaged the application into a Docker image using Maven for dependency management."
+
   - name: "Spring Boot Trading App"
     git_url: "/springboot"
     description: >
       Developed a Spring Boot–based trading application that exposes RESTful APIs for stock quote retrieval, order execution, and portfolio management, with an emphasis on clear service boundaries and backend correctness. The application integrates an external market data API for real-time pricing, applies a layered architecture (controller, service, DAO) to separate business logic from persistence concerns, and enforces validation and error handling to maintain data integrity. Relational data models were designed and implemented with JDBC and PostgreSQL, complemented by structured logging, containerized deployment using Docker, and unit and integration tests to verify end-to-end trading workflows.
+
+  - name: "React Trading App"
+    git_url: "/frontend"
+    description: >
+      Built a full-stack trading management application with a React (TypeScript) frontend and a Spring Boot backend. Implemented CRUD operations for traders and accounts and developed a responsive UI using Ant Design. Integrated real-time stock data from the IEX Cloud API and handled frontend-backend communication using Axios.
+
+  - name: "Cloud, K8S, and DevOps"
+    git_url: "/cloud_devops"
+    description: >
+      Deployed containerized applications to Microsoft Azure using Docker, Azure Kubernetes Service (AKS), and Azure Container Registry (ACR). Implemented a Jenkins-based CI/CD pipeline running in Kubernetes to automate image builds, registry pushes, and rolling deployments across development and production environments.
+
+  - name: "Python Data Analytics – Customer Segmentation"
+    git_url: "/python_data_analytics"
+    description: >
+      Built a data analytics workflow using Python, PostgreSQL (Docker), and Jupyter Notebook to analyze a UK retail dataset. Performed data wrangling and applied Recency, Frequency, and Monetary (RFM) analysis to segment customers and identify high-value groups for targeted marketing strategies.
 
 highlighted_projects:
   - name: "Roots & Route (Volunteer Engineering Project, Canada)"
@@ -80,6 +98,7 @@ highlighted_projects:
     git_url: ""
     description: >
       Designed and implemented a supervised classification project to analyze operational system data, focusing on data preprocessing, feature extraction, and model evaluation. Trained and compared standard classifiers and evaluated results using precision and recall to understand model behavior and generalization characteristics. The project emphasized methodological correctness and practical application of machine learning techniques in system monitoring and observability scenarios.
+
   - name: "Autonomous Mobile Robot Navigation"
     git_url: ""
     description: >

@@ -1,15 +1,15 @@
 # Avril Liu . Jarvis Consulting
 
-I am a Backend Engineer with 2+ years of experience building cloud-based backend services and distributed systems. I work primarily with Java and Spring Boot to design and develop RESTful APIs,  microservices, and event-driven service platforms using Kafka, Redis, and SQL/NoSQL databases.  I have contributed to high-throughput, multi-tenant messaging and cloud service systems,  with a focus on reliability, scalability, and operational stability.  I hold a Master’s degree in Computational Science and am motivated to build reliable, production-grade systems in enterprise environments.
+I am a Software Engineer with 2+ years of experience building cloud services and distributed systems.  I work primarily with Java and Spring Boot to develop services in distributed architectures and event-driven platforms using technologies such as Kafka, Redis, and SQL/NoSQL databases.  I have contributed to high-throughput, multi-tenant messaging and cloud infrastructure platforms, focusing on reliability, scalability, and operational stability. I hold a Master’s degree in Computational Science and enjoy building robust systems that support real-world services and data workflows.
 
 
 ## Skills
 
-**Proficient:** Java, Spring Boot, RDBMS (MySQL, PostgreSQL), MongoDB (NoSQL), Kafka, Redis, Docker, Kubernetes, Linux (Bash, CLI, Shell Scripting)
+**Proficient:** Java, Spring Boot, Golang, RDBMS (PostgreSQL, MySQL), MongoDB, Kafka, Redis, Docker, Kubernetes, Linux (Bash, CLI)
 
-**Competent:** Python (Flask / FastAPI), TypeScript/JavaScript (React / Next.js), RESTful APIs, SQL & Data Modeling, Cloud Platforms (AWS / GCP), CI/CD (GitHub Actions / Jenkins), Netty, gRPC
+**Competent:** Python, Pandas, NumPy, Jupyter, TypeScript / JavaScript (React), CI/CD (Jenkins, GitHub Actions), Cloud Platforms (Azure, AWS), gRPC
 
-**Familiar:** Message Queuing (RabbitMQ / SQS), Observability & Monitoring (Prometheus, CloudWatch), Distributed Systems Concepts (Raft Consensus Algorithm), API Documentation, Responsive UI Implementation
+**Familiar:** RabbitMQ, Prometheus, Distributed Systems, Netty, Microservices Architecture
 
 ## Jarvis Projects
 
@@ -28,6 +28,15 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu](
   - Grep App: Developed a Java application that replicates core functionality of the Linux grep command using object-oriented design. Implemented recursive file traversal and regex-based pattern matching, leveraging Java Streams and Lambda expressions for efficient data processing. Added logging with Logback and packaged the application into a Docker image using Maven for dependency management.
 
 **Spring Boot Trading App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu/tree/master/springboot)]: Developed a Spring Boot–based trading application that exposes RESTful APIs for stock quote retrieval, order execution, and portfolio management, with an emphasis on clear service boundaries and backend correctness. The application integrates an external market data API for real-time pricing, applies a layered architecture (controller, service, DAO) to separate business logic from persistence concerns, and enforces validation and error handling to maintain data integrity. Relational data models were designed and implemented with JDBC and PostgreSQL, complemented by structured logging, containerized deployment using Docker, and unit and integration tests to verify end-to-end trading workflows.
+
+
+**React Trading App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu/tree/master/frontend)]: Built a full-stack trading management application with a React (TypeScript) frontend and a Spring Boot backend. Implemented CRUD operations for traders and accounts and developed a responsive UI using Ant Design. Integrated real-time stock data from the IEX Cloud API and handled frontend-backend communication using Axios.
+
+
+**Cloud, K8S, and DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu/tree/master/cloud_devops)]: Deployed containerized applications to Microsoft Azure using Docker, Azure Kubernetes Service (AKS), and Azure Container Registry (ACR). Implemented a Jenkins-based CI/CD pipeline running in Kubernetes to automate image builds, registry pushes, and rolling deployments across development and production environments.
+
+
+**Python Data Analytics – Customer Segmentation** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AvrilLiu/tree/master/python_data_analytics)]: Built a data analytics workflow using Python, PostgreSQL (Docker), and Jupyter Notebook to analyze a UK retail dataset. Performed data wrangling and applied Recency, Frequency, and Monetary (RFM) analysis to segment customers and identify high-value groups for targeted marketing strategies.
 
 
 
