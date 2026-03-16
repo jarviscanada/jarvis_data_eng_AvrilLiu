@@ -1,0 +1,100 @@
+{
+  "traders": [
+    {
+      "id": "2",
+      "firstName": "Bob",
+      "lastName": "Li",
+      "email": "bob@example.com",
+      "dob": "1996-07-22",
+      "country": "USA"
+    },
+    {
+      "id": "3ed3",
+      "firstName": "Avril",
+      "lastName": "Liu",
+      "email": "avril661@gmail.com",
+      "dob": "2026-02-05",
+      "country": "Canada"
+    },
+    {
+      "id": "2f8f",
+      "firstName": "Evan",
+      "lastName": "Zhu",
+      "email": "evan@outlook.com",
+      "dob": "1994-11-13",
+      "country": "Canada"
+    },
+    {
+      "id": "7a91",
+      "firstName": "Sophia",
+      "lastName": "Chen",
+      "email": "sophia.chen@gmail.com",
+      "dob": "1992-03-18",
+      "country": "USA"
+    },
+    {
+      "id": "b883",
+      "firstName": "Daniel",
+      "lastName": "Wong",
+      "email": "daniel.wong@yahoo.com",
+      "dob": "1989-08-02",
+      "country": "Canada"
+    },
+    {
+      "id": "c104",
+      "firstName": "Michael",
+      "lastName": "Smith",
+      "email": "michael.smith@icloud.com",
+      "dob": "1985-01-27",
+      "country": "USA"
+    }
+  ],
+
+  "quotes": [
+    {
+      "id": "q1",
+      "ticker": "FB",
+      "lastPrice": 319.48,
+      "bidPrice": 319.20,
+      "bidSize": 200,
+      "askPrice": 319.60,
+      "askSize": 400
+    },
+    {
+      "id": "q2",
+      "ticker": "AAPL",
+      "lastPrice": 173.21,
+      "bidPrice": 173.10,
+      "bidSize": 300,
+      "askPrice": 173.30,
+      "askSize": 500
+    },
+    {
+      "id": "q3",
+      "ticker": "TSLA",
+      "lastPrice": 242.87,
+      "bidPrice": 242.50,
+      "bidSize": 150,
+      "askPrice": 243.10,
+      "askSize": 350
+    },
+    {
+      "id": "q4",
+      "ticker": "AMZN",
+      "lastPrice": 155.42,
+      "bidPrice": 155.20,
+      "bidSize": 180,
+      "askPrice": 155.60,
+      "askSize": 420
+    },
+    {
+      "id": "q5",
+      "ticker": "NFLX",
+      "lastPrice": 612.33,
+      "bidPrice": 612.00,
+      "bidSize": 120,
+      "askPrice": 612.80,
+      "askSize": 260
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+.quote-page {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  padding-top: 112px;
+
+  .quote-page__content {
+    padding-left: 120px; // leaves room for left navbar
+    padding-right: 48px;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+    padding-bottom: 24px;
+  }
+}
