@@ -1,0 +1,41 @@
+.trader-list {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+
+  .ant-table {
+    background: transparent;
+  }
+
+  .ant-table-thead > tr > th {
+    background-color: #f5f7fa;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .ant-table-tbody > tr > td {
+    color: #444;
+  }
+
+  .ant-table-tbody > tr:hover > td {
+    background-color: #f0f4ff;
+  }
+
+  .actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .actions,
+  .trader-delete-icon {
+    pointer-events: auto;
+  }
+
+  .delete-icon {
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 10;
+  }
+
+}
