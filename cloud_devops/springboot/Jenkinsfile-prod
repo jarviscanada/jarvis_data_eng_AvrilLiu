@@ -1,0 +1,107 @@
+pipeline {
+  agent {
+    kubernetes {
+      yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  serviceAccountName: jenkins-agent
+  containers:
+    - name: jnlp
+      image: jenkins/inbound-agent:latest
+      args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
+    - name: azure-cli
+      image: mcr.microsoft.com/azure-cli:latest
+      command: ['cat']
+      tty: true
+      volumeMounts:
+        - name: kubeconfig-volume
+          mountPath: /home/jenkins/.kube
+    - name: kubectl
+      image: bitnami/kubectl:latest
+      command: ['cat']
+      tty: true
+      volumeMounts:
+        - name: kubeconfig-volume
+          mountPath: /home/jenkins/.kube
+  volumes:
+    - name: kubeconfig-volume
+      emptyDir: {}
+"""
+    }
+  }
+
+  environment {
+    AZ_CLIENT_ID     = credentials('AZ_CLIENT_ID_PROD')
+    AZ_CLIENT_SECRET = credentials('AZ_CLIENT_SECRET_PROD')
+    AZ_TENANT_ID     = credentials('AZ_TENANT_ID_PROD')
+
+    ACR_NAME         = 'myacrprod'
+    ACR_LOGIN_SERVER = 'myacrprod.azurecr.io'
+    IMAGE_REPO       = 'trading-app'
+    IMAGE_TAG        = "${BUILD_NUMBER}"
+
+    RESOURCE_GROUP   = 'rg-trading-prod'
+    AKS_CLUSTER      = 'aks-trading-prod'
+    K8S_DEPLOYMENT   = 'trading-backend'
+    K8S_CONTAINER    = 'trading-app'
+  }
+
+  stages {
+    stage('Azure Login') {
+      steps {
+        container('azure-cli') {
+          sh '''
+            az version
+            az login --service-principal \
+              --username "$AZ_CLIENT_ID" \
+              --password "$AZ_CLIENT_SECRET" \
+              --tenant "$AZ_TENANT_ID"
+          '''
+        }
+      }
+    }
+
+    stage('Build and Push Image') {
+      steps {
+        container('azure-cli') {
+          sh '''
+            az acr build \
+              --registry ${ACR_NAME} \
+              --image ${IMAGE_REPO}:${IMAGE_TAG} \
+              --file springboot/Dockerfile \
+              springboot
+          '''
+        }
+      }
+    }
+
+    stage('Deploy to AKS Prod') {
+      steps {
+        container('azure-cli') {
+          sh '''
+            mkdir -p /home/jenkins/.kube
+            az aks get-credentials \
+              --resource-group ${RESOURCE_GROUP} \
+              --name ${AKS_CLUSTER} \
+              --file /home/jenkins/.kube/config \
+              --overwrite-existing
+          '''
+        }
+
+        container('kubectl') {
+          sh '''
+            export KUBECONFIG=/home/jenkins/.kube/config
+
+            kubectl set image deployment/${K8S_DEPLOYMENT} \
+              ${K8S_CONTAINER}=${ACR_LOGIN_SERVER}/${IMAGE_REPO}:${IMAGE_TAG}
+
+            kubectl rollout status deployment/${K8S_DEPLOYMENT}
+            kubectl get pods
+            kubectl get services
+          '''
+        }
+      }
+    }
+  }
+}
