@@ -1,0 +1,9 @@
+secretGenerator:
+  - name: db-credentials
+    literals:
+      - username=postgres
+      - password=postgres
+
+resources:
+  - postgres-deployment.yaml
+  - trading-deployment.yaml
